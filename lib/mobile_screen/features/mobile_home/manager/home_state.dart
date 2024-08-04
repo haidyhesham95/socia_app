@@ -69,3 +69,9 @@ class SavedPostsLoaded extends HomeState {
 
   SavedPostsLoaded(this.savedPosts);
 }
+
+class CommentLikeError extends HomeState {
+  final String error;
+
+  CommentLikeError(this.error);
+}

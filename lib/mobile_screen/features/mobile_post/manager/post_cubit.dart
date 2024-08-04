@@ -178,81 +178,14 @@ class PostCubit extends Cubit<PostState> {
 
 
 
-  // Map<String, dynamic> profileData = {};
-  //
-  // Future<void> getProfileData() async {
-  //   isLoadingPost = true;
-  //   emit(ProfileLoading());
-  //
-  //   try {
-  //     DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
-  //         .instance
-  //         .collection('users')
-  //         .doc(FirebaseAuth.instance.currentUser!.uid)
-  //         .get();
-  //
-  //     profileData = snapshot.data() ?? {};
-  //
-  //     isLoadingPost = false;
-  //     emit(ProfileSuccess());
-  //   } catch (e) {
-  //     isLoadingPost = false;
-  //     emit(ProfileError(error: e.toString()));
-  //   }
-  // }
-  // Map<String, dynamic> post = {};
-  //
-  // getPosts() async {
-  //   emit(PostLoading());
-  //   try {
-  // DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
-  //         .instance
-  //         .collection('posts')
-  //         .doc(FirebaseAuth.instance.currentUser!.uid)
-  //         .get();
-  //
-  //     post = snapshot.data() ?? {};
-  //     emit(PostSuccess());
-  //   } catch (e) {
-  //     emit(PostError(e.toString()));
-  //   }
-  // }
 
   Map<String, dynamic> profileData = {};
   Map<String, dynamic> post = {};
 
-/*
-  Future<void> getProfileAndPosts() async {
-    emit(PostLoading());
-    try {
-      // Fetch profile data
-      DocumentSnapshot<Map<String, dynamic>> profileSnapshot = await FirebaseFirestore
-          .instance
-          .collection('users')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .get();
-      profileData = profileSnapshot.data() ?? {};
-
-
-      // Fetch posts
-      DocumentSnapshot<Map<String, dynamic>> postSnapshot = await FirebaseFirestore
-          .instance
-          .collection('posts')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .get();
-      post = postSnapshot.data() ?? {};
-
-      emit(PostSuccess());
-    } catch (e) {
-      emit(PostError(e.toString()));
-    }
-  }
-*/
 
   Future<void> getProfileAndPosts() async {
     emit(PostLoading());
     try {
-      // Listen to profile data changes in real-time
       FirebaseFirestore.instance
           .collection('users')
           .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -260,7 +193,6 @@ class PostCubit extends Cubit<PostState> {
           .listen((profileSnapshot) async {
         profileData = profileSnapshot.data() ?? {};
 
-        // Fetch posts after updating profileData
         DocumentSnapshot<Map<String, dynamic>> postSnapshot = await FirebaseFirestore
             .instance
             .collection('posts')

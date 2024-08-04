@@ -20,52 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
   bool isLoadingLogin = false;
   UserModel? registerModel;
 
-  // Future signInWithEmailAndPassword(String email,String password,context)async{
-  //   isLoadingLogin = true;
-  //   emit(LoginLoading());
-  //   try {
-  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //         email: email,
-  //         password: password
-  //     );
-  //     isLoadingLogin = false;
-  //
-  //     emit(LoginSuccess());
-  //     showDialog(
-  //       context: context,
-  //       builder: (BuildContext context) {
-  //         return AlertDialog(
-  //           title: const Text('Alert'),
-  //           content: const Text('Login Sucess'),
-  //           actions: [
-  //             TextButton(
-  //               child: const Text('Close'),
-  //               onPressed: () {
-  //                 Navigator.of(context).pop();
-  //               },
-  //             ),
-  //           ],
-  //         );
-  //       },
-  //     );
-  //     Navigator.pushNamed(context, '/responsiveScreen');
-  //   }on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //            emit(LoginError(error: e.code .toString()));
-  //     } else if (e.code == 'wrong-password') {
-  //            emit(LoginError(error: e.code .toString()));
-  //
-  //
-  //     }
-  //
-  //   } catch (e) {
-  //     isLoadingLogin = false;
-  //
-  //     emit(LoginError(error: ''));
-  //
-  //   }
-  //
-  // }
+
 
   Future<void> signInWithEmailAndPassword(String email, String password, BuildContext context) async {
     isLoadingLogin = true;
@@ -78,9 +33,6 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginSuccess());
 
 
-
-      // // Delay to allow dialog to be seen before navigation
-      // await Future.delayed(Duration(milliseconds: 500));
       Navigator.pushNamed(context, '/responsiveScreen');
     } on FirebaseAuthException catch (e) {
       isLoadingLogin = false;

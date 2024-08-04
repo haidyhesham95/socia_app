@@ -14,7 +14,6 @@ import 'package:provider/provider.dart';
 import 'auth/login/view/mobile_login.dart';
 import 'auth/register/view/manager/register_cubit.dart';
 import 'firebase_options.dart';
-import 'mobile_screen/features/mobile_profile/view/edit_profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

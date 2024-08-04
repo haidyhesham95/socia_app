@@ -7,14 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:instgram/auth/register/view/manager/register_cubit.dart';
 import 'package:path/path.dart';
 
 
 import 'package:meta/meta.dart';
 
 import '../../../../auth/login/view/mobile_login.dart';
-import '../../../../auth/register/view/model/user_model.dart';
 
 part 'profile_state.dart';
 

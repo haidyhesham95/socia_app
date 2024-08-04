@@ -77,7 +77,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
    Map<String, dynamic> profileData = {};
-  //
+
   void getUser() async {
     try {
       DocumentSnapshot<Map<String, dynamic>> profileSnapshot = await FirebaseFirestore.instance
@@ -90,20 +90,6 @@ class HomeCubit extends Cubit<HomeState> {
        emit(UserProfileError(e.toString()));
     }
   }
-  // void getUser() {
-  //   try {
-  //     FirebaseFirestore.instance
-  //         .collection('users')
-  //         .doc(FirebaseAuth.instance.currentUser!.uid)
-  //         .snapshots()
-  //         .listen((profileSnapshot) {
-  //       profileData = profileSnapshot.data() ?? {};
-  //       emit(UserProfileLoaded(profileData));
-  //     });
-  //   } catch (e) {
-  //     emit(UserProfileError(e.toString()));
-  //   }
-  // }
 
   void deletePost( Map<String, dynamic> data) async {
     try {
@@ -235,25 +221,22 @@ class HomeCubit extends Cubit<HomeState> {
       DocumentSnapshot commentSnapshot = await commentRef.get();
 
       if (commentSnapshot.exists && commentSnapshot.data() != null) {
-        // Cast the data to a Map<String, dynamic>
         Map<String, dynamic> commentData = commentSnapshot.data()! as Map<String, dynamic>;
 
         List likes = commentData['commentLikes'] ?? [];
 
         if (likes.contains(uid)) {
-          // Remove the like if already liked
           await commentRef.update({
             'commentLikes': FieldValue.arrayRemove([uid]),
           });
         } else {
-          // Add the like if not yet liked
           await commentRef.update({
             'commentLikes': FieldValue.arrayUnion([uid]),
           });
         }
       }
     } catch (e) {
-      print("Error liking/unliking comment: $e");
+      emit(CommentLikeError(e.toString()));
     }
   }
 
