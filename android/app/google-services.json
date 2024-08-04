@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1088152695081",
+    "project_id": "instgram-4eed9",
+    "storage_bucket": "instgram-4eed9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088152695081:android:053b4735ea13df90790738",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCinMHkT00xghxAJg5IKPQ2k6Afc1CsFQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088152695081:android:5b01df779c68e85a790738",
+        "android_client_info": {
+          "package_name": "com.example.instgram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCinMHkT00xghxAJg5IKPQ2k6Afc1CsFQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088152695081:android:c91dd7fc7b769847790738",
+        "android_client_info": {
+          "package_name": "com.instgram.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCinMHkT00xghxAJg5IKPQ2k6Afc1CsFQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
